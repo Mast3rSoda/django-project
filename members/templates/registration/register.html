@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+<head>
+  {% block title %}
+  <title>Register</title>
+  {% endblock title %}
+</head>
+
+{% block content %}
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1 class=" site-heading my-4 mt-3 text-white">Register</h1>
+                    <p>&nbsp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<br/>
+<div class="container">
+  <form method="POST">
+    {%csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary mx-auto">Register</button>
+</div>
+{% block footer %}{% endblock footer %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1 class=" site-heading my-4 mt-3 text-white">Add Post</h1>
+                    <p>&nbsp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left top">
+      <div class="card-body">
+        {% if user.is_authenticated %}
+        <div class="form-group">
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p}}
+        </div>
+          <button class="btn btn-primary" >Post</button>
+        {% else %}
+          <p> You need to log in first!</p>
+          <form action="{% url 'home' %}">
+          <button class="btn btn-primary" type="submit">Return to main page</button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block footer %}
+{% endblock footer %}
+{% endblock %}
